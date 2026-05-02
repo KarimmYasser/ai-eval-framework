@@ -2,12 +2,40 @@
 
 A high-performance, research-driven framework for benchmarking **Multimodal AI** (Text, Image, Audio) and **Agentic Workflows**. Developed as part of a **GSoC 2026** research initiative with **API Dash**, this framework bridges the gap between traditional API testing and modern AI evaluation.
 
+> [!NOTE]
+> **Progressive Development:** The dashboard screenshots below reflect an earlier development state. As the framework undergoes rapid iteration to finalize the latest agentic and multimodal features, new high-resolution images will be uploaded to reflect the production-ready interface.
+
 ## 🖼️ Visual Overview
 
 ### System Architecture
-![System Architecture](f.png)
+```mermaid
+graph TD
+    %% Define Styles
+    classDef UI fill:#02569B,stroke:#fff,stroke-width:2px,color:#fff;
+    classDef Backend fill:#009688,stroke:#fff,stroke-width:2px,color:#fff;
+    classDef DB fill:#795548,stroke:#fff,stroke-width:2px,color:#fff;
 
-### Dashboard Experience
+    subgraph Presentation Layer
+        A[Flutter Native UI<br/>Riverpod State]:::UI
+    end
+
+    subgraph Backend Layer
+        B[FastAPI Async Server<br/>Semaphore Pool]:::Backend
+        C[Python Evaluation Engine<br/>Text + Image + Audio Metrics]:::Backend
+        D[(SQLite<br/>aiosqlite)]:::DB
+        E[Universal Model Connector<br/>OpenAI / Ollama / LM Studio / Anthropic]:::Backend
+    end
+
+    A -- REST Config (JSON / Multimodal Payload) --> B
+    B -. SSE Live Trace Stream .-> A
+    B -- asyncio Orchestration --> C
+    C -- Concurrent API Inference --> E
+    E -- Provider-Specific HTTP --> E
+    C -- Computed Metrics Array --> B
+    B -- Non-Blocking Writes --> D
+```
+
+### Dashboard Experience (WIP)
 | Dataset Management | Model Configuration |
 | :--- | :--- |
 | ![Dataset View](images/dataset_upload_view.png) | ![Model Config](images/model_config_view.png) |
