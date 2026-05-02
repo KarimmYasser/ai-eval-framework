@@ -2,6 +2,20 @@
 
 A high-performance, research-driven framework for benchmarking **Multimodal AI** (Text, Image, Audio) and **Agentic Workflows**. Developed as part of a **GSoC 2026** research initiative with **API Dash**, this framework bridges the gap between traditional API testing and modern AI evaluation.
 
+## 🖼️ Visual Overview
+
+### System Architecture
+![System Architecture](f.png)
+
+### Dashboard Experience
+| Dataset Management | Model Configuration |
+| :--- | :--- |
+| ![Dataset View](images/dataset_upload_view.png) | ![Model Config](images/model_config_view.png) |
+
+| Evaluation Runner | Analysis Dashboard |
+| :--- | :--- |
+| ![Runner View](images/evaluation_runner_view.png) | ![Analysis Dashboard](images/analysis_result_dashboard.png) |
+
 ## 🚀 Research Foundation
 
 This project is grounded in a deep literature review of seven recent peer-reviewed papers and Stanford’s **CME295** LLM Evaluation curriculum. Key architectural influences include:
